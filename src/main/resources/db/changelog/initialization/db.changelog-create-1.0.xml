@@ -1,0 +1,42 @@
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="1" author="wizerdshins" runAlways="true">
+        <validCheckSum>ANY</validCheckSum>
+        <comment>Creating a new table</comment>
+
+        <sql splitStatements="true">
+            DROP TABLE IF EXISTS "survey" CASCADE;
+            DROP TABLE IF EXISTS "question" CASCADE;
+        </sql>
+
+        <createTable tableName="survey">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="title" type="varchar(255)"/>
+            <column name="begin_date" type="date"/>
+            <column name="end_date" type="date"/>
+            <column name="activity" type="boolean"/>
+        </createTable>
+
+        <createTable tableName="question">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="text" type="varchar(255)"/>
+            <column name="survey_id" type="int4">
+                <constraints foreignKeyName="survey_id"
+                             referencedTableName="survey"
+                             referencedColumnNames="id"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+
+</databaseChangeLog>
