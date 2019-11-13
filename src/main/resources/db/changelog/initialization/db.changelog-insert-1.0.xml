@@ -11,110 +11,23 @@
         <comment>Insert objects into a table 'Survey'</comment>
 
         <insert tableName="survey">
-            <column name="id" value="1"/>
             <column name="title" value="Опрос для ученых"/>
             <column name="begin_date" value="2019-10-31"/>
             <column name="end_date" value="2020-01-01"/>
             <column name="activity" value="true"/>
         </insert>
         <insert tableName="survey">
-            <column name="id" value="2"/>
             <column name="title" value="Опрос для пришельцев"/>
             <column name="begin_date" value="2019-10-31"/>
             <column name="end_date" value="2119-10-31"/>
             <column name="activity" value="true"/>
         </insert>
         <insert tableName="survey">
-            <column name="id" value="3"/>
             <column name="title" value="Опрос для пауэрлифтеров"/>
             <column name="begin_date" value="2019-10-01"/>
             <column name="end_date" value="2020-11-01"/>
             <column name="activity" value="false"/>
         </insert>
-
-        <!--<insert tableName="question">-->
-            <!--<column name="id" value="1"/>-->
-            <!--<column name="text" value="Ваша сфера исследований?"/>-->
-            <!--<column name="survey_id" value="1"/>-->
-        <!--</insert>-->
-
-        <!--<insert tableName="question">-->
-            <!--<column name="id" value="2"/>-->
-            <!--<column name="text" value="Ваши ученые степени?"/>-->
-            <!--<column name="survey_id" value="1"/>-->
-        <!--</insert>-->
-
-        <!--<insert tableName="question">-->
-            <!--<column name="id" value="3"/>-->
-            <!--<column name="text" value="Ваша страна проживания?"/>-->
-            <!--<column name="survey_id" value="1"/>-->
-        <!--</insert>-->
-
-        <!--<insert tableName="question">-->
-            <!--<column name="id" value="4"/>-->
-            <!--<column name="text" value="Являетесь ли Вы нобелевским лауреатом?"/>-->
-            <!--<column name="survey_id" value="1"/>-->
-        <!--</insert>-->
-
-        <!--<insert tableName="question">-->
-            <!--<column name="id" value="5"/>-->
-            <!--<column name="text" value="Ваша классификация по К. Линнею?"/>-->
-            <!--<column name="survey_id" value="2"/>-->
-        <!--</insert>-->
-
-        <!--<insert tableName="question">-->
-            <!--<column name="id" value="6"/>-->
-            <!--<column name="text" value="Откуда вы прилетели?"/>-->
-            <!--<column name="survey_id" value="2"/>-->
-        <!--</insert>-->
-
-        <!--<insert tableName="question">-->
-            <!--<column name="id" value="7"/>-->
-            <!--<column name="text" value="Возраст вашей цивилизации?"/>-->
-            <!--<column name="survey_id" value="2"/>-->
-        <!--</insert>-->
-
-        <!--<insert tableName="question">-->
-            <!--<column name="id" value="8"/>-->
-            <!--<column name="text" value="Ваш тип питания?"/>-->
-            <!--<column name="survey_id" value="2"/>-->
-        <!--</insert>-->
-
-        <!--<insert tableName="question">-->
-            <!--<column name="id" value="9"/>-->
-            <!--<column name="text" value="Ваши намерения в отношении землян?"/>-->
-            <!--<column name="survey_id" value="2"/>-->
-        <!--</insert>-->
-
-        <!--<insert tableName="question">-->
-            <!--<column name="id" value="10"/>-->
-            <!--<column name="text" value="Ваш пол?"/>-->
-            <!--<column name="survey_id" value="3"/>-->
-        <!--</insert>-->
-
-        <!--<insert tableName="question">-->
-            <!--<column name="id" value="11"/>-->
-            <!--<column name="text" value="Ваш возраст?"/>-->
-            <!--<column name="survey_id" value="3"/>-->
-        <!--</insert>-->
-
-        <!--<insert tableName="question">-->
-            <!--<column name="id" value="12"/>-->
-            <!--<column name="text" value="Ваша весовая категория?"/>-->
-            <!--<column name="survey_id" value="3"/>-->
-        <!--</insert>-->
-
-        <!--<insert tableName="question">-->
-            <!--<column name="id" value="13"/>-->
-            <!--<column name="text" value="Ваша сумма в троеборье?"/>-->
-            <!--<column name="survey_id" value="3"/>-->
-        <!--</insert>-->
-
-        <!--<insert tableName="question">-->
-            <!--<column name="id" value="14"/>-->
-            <!--<column name="text" value="Федерация, в которой Вы выступаете?"/>-->
-            <!--<column name="survey_id" value="3"/>-->
-        <!--</insert>-->
 
     </changeSet>
 
@@ -122,75 +35,61 @@
         <validCheckSum>ANY</validCheckSum>
         <comment>Insert objects into table 'question'</comment>
         <insert tableName="question">
-            <column name="id" value="1"/>
             <column name="text" value="Ваша сфера исследований?"/>
             <column name="survey_id" value="1"/>
         </insert>
         <insert tableName="question">
-            <column name="id" value="2"/>
             <column name="text" value="Ваши ученые степени?"/>
             <column name="survey_id" value="1"/>
         </insert>
         <insert tableName="question">
-            <column name="id" value="3"/>
             <column name="text" value="Ваша страна проживания?"/>
             <column name="survey_id" value="1"/>
         </insert>
 
         <insert tableName="question">
-            <column name="id" value="4"/>
             <column name="text" value="Являетесь ли Вы нобелевским лауреатом?"/>
             <column name="survey_id" value="1"/>
         </insert>
 
         <insert tableName="question">
-            <column name="id" value="5"/>
             <column name="text" value="Ваша классификация по К. Линнею?"/>
             <column name="survey_id" value="2"/>
         </insert>
         <insert tableName="question">
-            <column name="id" value="6"/>
             <column name="text" value="Откуда вы прилетели?"/>
             <column name="survey_id" value="2"/>
         </insert>
         <insert tableName="question">
-            <column name="id" value="7"/>
             <column name="text" value="Возраст вашей цивилизации?"/>
             <column name="survey_id" value="2"/>
         </insert>
         <insert tableName="question">
-            <column name="id" value="8"/>
             <column name="text" value="Ваш тип питания?"/>
             <column name="survey_id" value="2"/>
         </insert>
         <insert tableName="question">
-            <column name="id" value="9"/>
             <column name="text" value="Ваши намерения в отношении землян?"/>
             <column name="survey_id" value="2"/>
         </insert>
 
         <insert tableName="question">
-            <column name="id" value="10"/>
             <column name="text" value="Ваш пол?"/>
             <column name="survey_id" value="3"/>
         </insert>
         <insert tableName="question">
-            <column name="id" value="11"/>
             <column name="text" value="Ваш возраст?"/>
             <column name="survey_id" value="3"/>
         </insert>
         <insert tableName="question">
-            <column name="id" value="12"/>
             <column name="text" value="Ваша весовая категория?"/>
             <column name="survey_id" value="3"/>
         </insert>
         <insert tableName="question">
-            <column name="id" value="13"/>
             <column name="text" value="Ваша сумма в троеборье?"/>
             <column name="survey_id" value="3"/>
         </insert>
         <insert tableName="question">
-            <column name="id" value="14"/>
             <column name="text" value="Федерация, в которой Вы выступаете?"/>
             <column name="survey_id" value="3"/>
         </insert>

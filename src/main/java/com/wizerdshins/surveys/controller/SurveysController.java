@@ -34,7 +34,7 @@ public class SurveysController {
     }
 
     @ApiOperation(value = "Show all surveys. " +
-            "Tag 'title' or 'data' will be sorting results (f.e. '/tag=?'). " +
+            "Tag 'title' or 'data' will be sorting results (f.e. 'tag=?'). " +
             "It's not required",
             response = Page.class)
     @GetMapping("show{tag}")

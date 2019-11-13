@@ -17,7 +17,7 @@
 
         <createTable tableName="survey">
             <column name="id" type="bigint" autoIncrement="true">
-                <constraints primaryKey="true"/>
+                <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="title" type="varchar(255)"/>
             <column name="begin_date" type="date"/>
