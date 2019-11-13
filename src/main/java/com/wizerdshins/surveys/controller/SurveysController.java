@@ -4,11 +4,10 @@ import com.wizerdshins.surveys.domain.Question;
 import com.wizerdshins.surveys.domain.Survey;
 import com.wizerdshins.surveys.repository.QuestionRepository;
 import com.wizerdshins.surveys.repository.SurveyRepository;
+import com.wizerdshins.surveys.service.QuestionService;
 import com.wizerdshins.surveys.service.SurveyService;
-
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,16 +20,13 @@ import org.springframework.web.bind.annotation.*;
 @Api(value = "Survey Controller", description = "Main controller allows to use basic CRUD operations")
 public class SurveysController {
 
-    private SurveyRepository surveyRepository;
-    private QuestionRepository questionRepository;
     private SurveyService surveyService;
+    private QuestionService questionService;
 
-    public SurveysController(SurveyRepository surveyRepository,
-                             QuestionRepository questionRepository,
-                             SurveyService surveyService) {
-        this.surveyRepository = surveyRepository;
-        this.questionRepository = questionRepository;
+    public SurveysController(SurveyService surveyService,
+                             QuestionService questionService) {
         this.surveyService = surveyService;
+        this.questionService = questionService;
     }
 
     @ApiOperation(value = "Show all surveys. " +
@@ -40,8 +36,6 @@ public class SurveysController {
     @GetMapping("show{tag}")
     public Page<Survey> getAll(@PageableDefault(sort = "id", direction = Sort.Direction.ASC) Pageable pageable,
                                @RequestParam(name = "tag", defaultValue = "", required = false) String tag) {
-
-        System.out.println("Tag: " + tag);
         return surveyService.showAll(pageable, tag);
     }
 
@@ -54,28 +48,26 @@ public class SurveysController {
     @ApiOperation(value = "Add new Survey")
     @PostMapping("add/survey")
     public Survey addSurvey(@RequestBody Survey survey) {
-        return surveyRepository.save(survey);
+        return surveyService.save(survey);
     }
 
     @ApiOperation(value = "Add new Question; param ID points to parent Survey")
     @PostMapping("add/question/{id}")
     public Question addQuestion(@PathVariable("id") Long surveyId,
                                 @RequestBody Question question) {
-        question.setSurveyId(surveyId);
-        return questionRepository.save(question);
+        return questionService.add(surveyId, question);
     }
 
     @ApiOperation(value = "Updated Survey by ID")
     @PostMapping("update/{id}")
     public Survey edit(@PathVariable("id") Survey persistSurvey,
                        @RequestBody Survey updatedSurvey) {
-        BeanUtils.copyProperties(updatedSurvey, persistSurvey, "id", "beginDate");
-        return surveyRepository.save(persistSurvey);
+        return surveyService.edit(persistSurvey, updatedSurvey);
     }
 
     @ApiOperation(value = "Delete Survey by ID")
     @DeleteMapping("delete/{id}")
     public void delete(@PathVariable("id") Survey survey) {
-        surveyRepository.delete(survey);
+        surveyService.delete(survey);
     }
 }
